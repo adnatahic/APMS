@@ -11,7 +11,7 @@ import ba.unsa.etf.bp.model.IOBlock;
 import ba.unsa.etf.bp.repository.IOBlockRepository;
 
 @RestController
-//@RequestMapping("api/")
+@RequestMapping("api/")
 public class IOBlockController {
 	@Autowired
 	private IOBlockRepository _IOBlockRepository;

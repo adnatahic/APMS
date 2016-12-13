@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Location } from '../Location';
+import { EncodedMessage } from '../encoded-message';
 
 import { LocationService } from './location.service';
 
@@ -8,17 +8,14 @@ import { LocationService } from './location.service';
     templateUrl: 'app/menu/menu.component.html'
 })
 export class MenuComponent{
-    locations: any[] = [];
+    locations: EncodedMessage[] = [];
     
     constructor(private _locationService: LocationService) {
     }
     getLocations(): void {
         this._locationService.getLocations()
-        .subscribe((locations) => {
-            this.locations;
-            console.log(this.locations);
-            }
-            );
+        .subscribe((locations) => { this.locations = locations; 
+                                    console.log(this.locations); } );
     }
 
 }

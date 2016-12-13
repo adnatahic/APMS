@@ -15,7 +15,6 @@ public class IOBlock {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="IOBLOCK_ID")
 	private Long id;
-	
 	private String name;
 	
 	private String encodedData;
@@ -46,6 +45,25 @@ public class IOBlock {
 	@JoinColumn(name="UNIT_ID")
 	private Unit unit;
 	
+	public IOBlock(Long id, String name, String encodedData, Integer ordinal, Double valueLower, Double valueUpper,
+			Double physicalLower, Double physicalUpper, Node node, IODirection direction, IOType type, Unit unit) {
+		this.id = id;
+		this.name = name;
+		this.encodedData = encodedData;
+		this.ordinal = ordinal;
+		this.valueLower = valueLower;
+		this.valueUpper = valueUpper;
+		this.physicalLower = physicalLower;
+		this.physicalUpper = physicalUpper;
+		this.node = node;
+		this.direction = direction;
+		this.type = type;
+		this.unit = unit;
+	}
+	
+	public IOBlock() {
+		
+	}
 	public IODirection getDirection() {
 		return direction;
 	}

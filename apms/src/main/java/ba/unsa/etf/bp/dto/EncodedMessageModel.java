@@ -1,20 +1,10 @@
-package ba.unsa.etf.bp.model;
+package ba.unsa.etf.bp.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import ba.unsa.etf.bp.model.EncodedMessage;
 
-@Entity
-public class EncodedMessage {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ENCODED_MESSAGE_ID")
+public class EncodedMessageModel {
 	private Long id;
 	private Date creationTime;
 	
@@ -25,16 +15,15 @@ public class EncodedMessage {
 	private String nodeId;
 	
 	private String gatewayIP;
-	
+
 	private String protocol;
 	
 	private String encodedData;
 	
-	@OneToOne(mappedBy="encodedMessage", fetch=FetchType.LAZY)
-	private Message message;
+	private Long MessageId;
 	
-	public EncodedMessage(Long id, Date creationTime, Double lat, Double lng, String nodeId, String gatewayIP,
-			String protocol, String encodedData, Message message) {
+	public EncodedMessageModel(Long id, Date creationTime, Double lat, Double lng, String nodeId, String gatewayIP,
+			String protocol, String encodedData, Long messageId) {
 		this.id = id;
 		this.creationTime = creationTime;
 		this.lat = lat;
@@ -43,61 +32,89 @@ public class EncodedMessage {
 		this.gatewayIP = gatewayIP;
 		this.protocol = protocol;
 		this.encodedData = encodedData;
-		this.message = message;
+		this.MessageId = messageId;
 	}
 	
-	public EncodedMessage() {
-		
+	public EncodedMessageModel(EncodedMessage encodedMessage) {
+		this.id = encodedMessage.getId();
+		this.creationTime = encodedMessage.getCreationTime();
+		this.lat = encodedMessage.getLat();
+		this.lng = encodedMessage.getLng();
+		this.nodeId = encodedMessage.getNodeId();
+		this.gatewayIP = encodedMessage.getGatewayIP();
+		this.protocol = encodedMessage.getProtocol();
+		this.encodedData = encodedMessage.getEncodedData();
+		this.MessageId = encodedMessage.getMessage().getId();
 	}
 	
 	public Date getCreationTime() {
 		return creationTime;
 	}
+
 	public String getEncodedData() {
 		return encodedData;
 	}
+
 	public String getGatewayIP() {
 		return gatewayIP;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public Double getLat() {
 		return lat;
 	}
+
 	public Double getLng() {
 		return lng;
 	}
-	public Message getMessage() {
-		return message;
+
+	public Long getMessageId() {
+		return MessageId;
 	}
+
 	public String getNodeId() {
 		return nodeId;
 	}
+
 	public String getProtocol() {
 		return protocol;
 	}
+
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
 	}
+
 	public void setEncodedData(String encodedData) {
 		this.encodedData = encodedData;
 	}
+
 	public void setGatewayIP(String gatewayIP) {
 		this.gatewayIP = gatewayIP;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public void setLat(Double lat) {
 		this.lat = lat;
 	}
+
 	public void setLng(Double lng) {
 		this.lng = lng;
 	}
-	public void setMessage(Message message) {
-		this.message = message;
+
+	public void setMessageId(Long messageId) {
+		MessageId = messageId;
 	}
+
 	public void setNodeId(String nodeId) {
 		this.nodeId = nodeId;
 	}
+
 	public void setProtocol(String protocol) {
 		this.protocol = protocol;
 	}

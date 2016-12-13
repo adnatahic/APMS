@@ -1,5 +1,6 @@
 package ba.unsa.etf.bp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,14 +17,25 @@ public class Node {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="NODE_ID")
 	private Long id;
-	
+
 	private String description;
 	
 	@OneToMany(mappedBy="node", cascade=CascadeType.ALL)
-	private List<IOBlock> IOBlocks;
-
+	private List<IOBlock> IOBlocks = new ArrayList<IOBlock>();
+	
 	@OneToMany(mappedBy="node", cascade=CascadeType.ALL)
-	private List<Message> messages;
+	private List<Message> messages = new ArrayList<Message>();
+
+	public Node(Long id, String description, List<IOBlock> iOBlocks, List<Message> messages) {
+		this.id = id;
+		this.description = description;
+		this.IOBlocks = iOBlocks;
+		this.messages = messages;
+	}
+	
+	public Node() {
+		
+	}
 	
 	public String getDescription() {
 		return description;

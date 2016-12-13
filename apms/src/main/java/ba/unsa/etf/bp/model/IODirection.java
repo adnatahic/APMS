@@ -1,5 +1,6 @@
 package ba.unsa.etf.bp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,13 +14,23 @@ public class IODirection {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
 	private String code;
 	
 	private String description;
 	
 	@OneToMany(mappedBy="direction")
-	private List<IOBlock> IOBlocks;
+	private List<IOBlock> IOBlocks = new ArrayList<IOBlock>();
+	
+	public IODirection(Long id, String code, String description, List<IOBlock> iOBlocks) {
+		this.id = id;
+		this.code = code;
+		this.description = description;
+		this.IOBlocks = iOBlocks;
+	}
+	
+	public IODirection() {
+		
+	}
 	
 	public String getCode() {
 		return code;

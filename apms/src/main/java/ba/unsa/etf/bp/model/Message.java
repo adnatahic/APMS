@@ -26,6 +26,16 @@ public class Message {
 	@JoinColumn(name="ENCODED_MESSAGE_ID")
 	private EncodedMessage encodedMessage;
 	
+	public Message(Long id, Node node, EncodedMessage encodedMessage) {
+		this.id = id;
+		this.node = node;
+		this.encodedMessage = encodedMessage;
+	}
+	
+	public Message() {
+		
+	}
+	
 	public EncodedMessage getEncodedMessage() {
 		return encodedMessage;
 	}

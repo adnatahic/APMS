@@ -1,5 +1,6 @@
 package ba.unsa.etf.bp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,11 +14,20 @@ public class Unit {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
 	private String code;
 	
 	@OneToMany(mappedBy="unit")
-	private List<IOBlock> IOBlocks;
+	private List<IOBlock> IOBlocks = new ArrayList<IOBlock>();
+	
+	public Unit(Long id, String code, List<IOBlock> iOBlocks) {
+		this.id = id;
+		this.code = code;
+		this.IOBlocks = iOBlocks;
+	}
+	
+	public Unit() {
+	
+	}
 	
 	public String getCode() {
 		return code;

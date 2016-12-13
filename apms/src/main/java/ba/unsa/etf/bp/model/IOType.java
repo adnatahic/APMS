@@ -1,5 +1,6 @@
 package ba.unsa.etf.bp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,7 +20,18 @@ public class IOType {
 	private String description;
 	
 	@OneToMany(mappedBy="type")
-	private List<IOBlock> IOBlocks;
+	private List<IOBlock> IOBlocks = new ArrayList<IOBlock>();
+	
+	public IOType(Long id, String code, String description, List<IOBlock> iOBlocks) {
+		this.id = id;
+		this.code = code;
+		this.description = description;
+		this.IOBlocks = iOBlocks;
+	}
+	
+	public IOType() {
+		
+	}
 	
 	public String getCode() {
 		return code;
