@@ -9,16 +9,16 @@ import { Location } from '../Location';
 
 @Injectable()
 export class LocationService {
-    private _locationUrl="http://localhost:8080/api/locations";
+    private _locationUrl="http://localhost:8080/api/encodedMessages";
 
     constructor(private _http: Http) { }
 
-    getLocations(): Observable<Location[]> {
+    getLocations(): Observable<any[]> {
         let _header = new Headers();
         _header.append('Content-Type', 'application/json');
 
         return this._http.get(this._locationUrl, { headers: _header})
-        .map((response: Response) => <Location[]> response.json().locations)
+        .map((response: Response) => <any[]> response.json().locations)
         .catch(this.handleError);
     }
 

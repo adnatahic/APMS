@@ -3,9 +3,9 @@ package ba.unsa.etf.bp.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import ba.unsa.etf.bp.model.Location;
+import ba.unsa.etf.bp.model.Node;
 
 @Repository
-public interface LocationRepository extends JpaRepository<Location, Long>{
+public interface NodeRepository extends JpaRepository<Node, Long> {
 
 }

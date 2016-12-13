@@ -8,13 +8,17 @@ import { LocationService } from './location.service';
     templateUrl: 'app/menu/menu.component.html'
 })
 export class MenuComponent{
-    locations: Location[] = [];
+    locations: any[] = [];
     
     constructor(private _locationService: LocationService) {
     }
     getLocations(): void {
         this._locationService.getLocations()
-        .subscribe(locations => this.locations);
+        .subscribe((locations) => {
+            this.locations;
+            console.log(this.locations);
+            }
+            );
     }
 
 }
