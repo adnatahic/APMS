@@ -18,7 +18,7 @@ public class Message {
 	@Column(name="MESSAGE_ID")
 	private Long id;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="NODE_ID")
 	private Node node;
 	

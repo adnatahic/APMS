@@ -14,7 +14,7 @@ export class MapsComponent implements OnInit {
     ngOnInit(): void {
         this.point = { lat: 43.8523, lng: 18.3861 };    
         this.map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
+            zoom: 25,
             center: this.point
         });
     }

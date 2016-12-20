@@ -14,9 +14,6 @@ import ba.unsa.etf.bp.dto.EncodedMessageModel;
 @RestController
 @RequestMapping("api/")
 public class EncodedMessageController {
-	//@Autowired
-	//private EncodedMessageRepository _encodedMessageRepository;
-	
 	@Autowired
 	private EncodedMessageService _encodedMessageService;
 	
