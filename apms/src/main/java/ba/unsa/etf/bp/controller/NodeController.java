@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ public class NodeController {
 	@Autowired
 	private NodeService	_nodeService;
 	
+	@CrossOrigin
 	@RequestMapping(value="nodes", method=RequestMethod.GET)
 	public List<NodeModel> getNodesInGeoRange(@RequestParam Double neLat,
 											  @RequestParam Double neLng,

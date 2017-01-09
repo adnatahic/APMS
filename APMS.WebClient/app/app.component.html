@@ -1,11 +1,18 @@
-<div class="container-fluid">
-    <div class="col-xs-2">
-        <h1>Air Pollution Monitoring System</h1>
-        <h2>by Adna Tahic <br>
-            and Mirzet Brkic</h2>
-            <menu></menu>
-    </div>
-    <div class="col-xs-10">
-        <maps></maps>
-    </div>
-</div>
+<h2 class="text-center">Air Pollution Monitoring System</h2>
+<nav> 
+    <ul class="nav nav-pills nav-justified">
+    <li role="presentation" routerLinkActive="active">
+    <a routerLink="/map" >Map</a>
+    </li>
+    <li role="presentation"  routerLinkActive="active">
+    <a routerLink="/analyze">Analyze</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+    <a routerLink="/manage" >Manage</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+    <a routerLink="/input" >Input</a>
+    </li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

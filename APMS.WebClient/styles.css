@@ -19,7 +19,9 @@ html {
   margin: 0;
   height: 100%;
 }
-
+.margine {
+  margin: 10px;
+}
 .col-xs-2 {
   padding: 0;
   margin: 0;

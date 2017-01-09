@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,11 +20,13 @@ public class MessageController {
 	@Autowired
 	private MessageService _messageService;
 	
+	@CrossOrigin
 	@RequestMapping(value="message", method=RequestMethod.GET)
 	public MessageModel getLastMessageForNode(@RequestParam Long nodeId) {
 		return this._messageService.getLastMessageFroNode(nodeId);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="messages", method=RequestMethod.GET) 
 	public List<MessageModel> getMessagesForNodeWithTimestamp(@RequestParam Long nodeId,
 															  @RequestParam @DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss") Date from,

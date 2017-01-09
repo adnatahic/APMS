@@ -1,4 +1,5 @@
-<button (click)="getLocations()">Get</button>
-<ul>
-    <li *ngFor="let location of locations"> {{location.id + ", " + location.lat + ", " + location.lng + ", " + location.gatewayIP}}</li>
-</ul>
+<div class="container-fluid">
+        <button (click)="getNodes()">Get</button>
+        <div id="map">map</div>
+</div>
+
