@@ -6,6 +6,7 @@ import ba.unsa.etf.bp.model.EncodedMessage;
 
 public class EncodedMessageModel {
 	private Long id;
+	
 	private Date creationTime;
 	
 	private Double lat;

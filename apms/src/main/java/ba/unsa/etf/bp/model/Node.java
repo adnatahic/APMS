@@ -18,43 +18,46 @@ public class Node {
 	@Column(name="NODE_ID")
 	private Long id;
 
-	private String description;
+	private String name;
+	
+	private String nodeCodeId;
 	
 	@OneToMany(mappedBy="node", cascade=CascadeType.ALL)
 	private List<IOBlock> IOBlocks = new ArrayList<IOBlock>();
-	
+
 	@OneToMany(mappedBy="node", cascade=CascadeType.ALL)
 	private List<Message> messages = new ArrayList<Message>();
 
-	public Node(Long id, String description, List<IOBlock> iOBlocks, List<Message> messages) {
-		this.id = id;
-		this.description = description;
-		this.IOBlocks = iOBlocks;
-		this.messages = messages;
-	}
-	
 	public Node() {
 		
 	}
 	
-	public String getDescription() {
-		return description;
+	public Node(Long id, String name, String nodeId, List<IOBlock> iOBlocks, List<Message> messages) {
+		this.id = id;
+		this.name = name;
+		this.nodeCodeId = nodeId;
+		this.IOBlocks = iOBlocks;
+		this.messages = messages;
 	}
 
 	public Long getId() {
 		return id;
 	}
-
+	
 	public List<IOBlock> getIOBlocks() {
 		return IOBlocks;
 	}
-
+	
 	public List<Message> getMessages() {
 		return messages;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public String getName() {
+		return name;
+	}
+
+	public String getNodeId() {
+		return nodeCodeId;
 	}
 
 	public void setIOBlocks(List<IOBlock> iOBlocks) {
@@ -63,5 +66,13 @@ public class Node {
 
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeCodeId = nodeId;
 	}
 }

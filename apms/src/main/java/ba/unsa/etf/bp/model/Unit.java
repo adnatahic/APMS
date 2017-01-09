@@ -15,23 +15,28 @@ public class Unit {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String code;
+	private String description;
 	
 	@OneToMany(mappedBy="unit")
 	private List<IOBlock> IOBlocks = new ArrayList<IOBlock>();
+
+	public Unit() {
 	
+	}
 	public Unit(Long id, String code, List<IOBlock> iOBlocks) {
 		this.id = id;
 		this.code = code;
 		this.IOBlocks = iOBlocks;
 	}
 	
-	public Unit() {
-	
-	}
-	
 	public String getCode() {
 		return code;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -40,6 +45,9 @@ public class Unit {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public void setIOBlocks(List<IOBlock> iOBlocks) {
 		IOBlocks = iOBlocks;

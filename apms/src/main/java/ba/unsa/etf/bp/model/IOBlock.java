@@ -16,8 +16,6 @@ public class IOBlock {
 	@Column(name="IOBLOCK_ID")
 	private Long id;
 	private String name;
-	// ?
-	private String encodedData;
 	
 	private Integer ordinal;
 	
@@ -45,11 +43,10 @@ public class IOBlock {
 	@JoinColumn(name="UNIT_ID")
 	private Unit unit;
 	
-	public IOBlock(Long id, String name, String encodedData, Integer ordinal, Double valueLower, Double valueUpper,
+	public IOBlock(Long id, String name, Integer ordinal, Double valueLower, Double valueUpper,
 			Double physicalLower, Double physicalUpper, Node node, IODirection direction, IOType type, Unit unit) {
 		this.id = id;
 		this.name = name;
-		this.encodedData = encodedData;
 		this.ordinal = ordinal;
 		this.valueLower = valueLower;
 		this.valueUpper = valueUpper;
@@ -66,9 +63,6 @@ public class IOBlock {
 	}
 	public IODirection getDirection() {
 		return direction;
-	}
-	public String getEncodedData() {
-		return encodedData;
 	}
 	public Long getId() {
 		return id;
@@ -102,9 +96,6 @@ public class IOBlock {
 	}
 	public void setDirection(IODirection direction) {
 		this.direction = direction;
-	}
-	public void setEncodedData(String encodedData) {
-		this.encodedData = encodedData;
 	}
 	public void setName(String name) {
 		this.name = name;

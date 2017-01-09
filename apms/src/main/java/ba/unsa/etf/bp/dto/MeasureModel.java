@@ -4,6 +4,10 @@ public class MeasureModel {
 	private String measureName;
 	private String unitCode;
 	private Double value;
+	
+	public MeasureModel(){
+		
+	}
 	public MeasureModel(String measureName, String unitCode, Double value) {
 		this.measureName = measureName;
 		this.unitCode = unitCode;

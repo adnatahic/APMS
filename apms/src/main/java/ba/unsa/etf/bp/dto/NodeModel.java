@@ -4,67 +4,62 @@ import java.util.Date;
 import java.util.List;
 
 public class NodeModel {
-	private Long nodeId;
-	private String node;
-	private Double lat;
-	private Double lng;
-	private Date creationTime;
-	private List<MeasureModel> measurements;
-	public NodeModel() {
-		
-	}
-	public NodeModel(Long nodeId, String node, Double lat, Double lng, Date creationTime,
-			List<MeasureModel> measurements) {
-		this.nodeId = nodeId;
-		this.node = node;
-		this.lat = lat;
-		this.lng = lng;
-		this.creationTime = creationTime;
-		this.measurements = measurements;
+	private Long id;
+	private String name;
+	private Double currentLat;
+	private Double currentLng;
+	private List<Long> messages;
+	private List<Long> IOBlocks;
+	
+	public NodeModel(Long id, String name, Double currentLat, Double currentLng) {
+		this.id = id;
+		this.name = name;
+		this.currentLat = currentLat;
+		this.currentLng = currentLng;
+		this.messages = null;
+		this.IOBlocks = null;
 	}
 	
-	public NodeModel(Long nodeId, String node, Double lat, Double lng, Date creationTime) {
-		this.nodeId = nodeId;
-		this.node = node;
-		this.lat = lat;
-		this.lng = lng;
-		this.creationTime = creationTime;
-		this.measurements = null;
+	public NodeModel(Long id, String name, Double currentLat, Double currentLng, List<Long> messages,
+			List<Long> iOBlocks) {
+		this.id = id;
+		this.name = name;
+		this.currentLat = currentLat;
+		this.currentLng = currentLng;
+		this.messages = messages;
+		this.IOBlocks = iOBlocks;
 	}
-	public Date getCreationTime() {
-		return creationTime;
+	public Double getCurrentLat() {
+		return currentLat;
 	}
-	public Double getLat() {
-		return lat;
+	public Double getCurrentLng() {
+		return currentLng;
 	}
-	public Double getLng() {
-		return lng;
+	public String getName() {
+		return name;
 	}
-	public List<MeasureModel> getMeasurements() {
-		return measurements;
+	public Long getId() {
+		return id;
 	}
-	public String getNode() {
-		return node;
+	public List<Long> getIOBlocks() {
+		return this.IOBlocks;
 	}
-	public Long getNodeId() {
-		return nodeId;
+	public List<Long> getMessages() {
+		return this.messages;
 	}
-	public void setCreationTime(Date creationTime) {
-		this.creationTime = creationTime;
+	public void setCurrentLat(Double currentLat) {
+		this.currentLat = currentLat;
 	}
-	public void setLat(Double lat) {
-		this.lat = lat;
+	public void setCurrentLng(Double currentLng) {
+		this.currentLng = currentLng;
 	}
-	public void setLng(Double lng) {
-		this.lng = lng;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setMeasurements(List<MeasureModel> measurements) {
-		this.measurements = measurements;
+	public void setIOBlocks(List<Long> iOBlocks) {
+		this.IOBlocks = iOBlocks;
 	}
-	public void setNode(String node) {
-		this.node = node;
-	}
-	public void setNodeId(Long nodeId) {
-		this.nodeId = nodeId;
+	public void setMessages(List<Long> messages) {
+		this.messages = messages;
 	}
 }
